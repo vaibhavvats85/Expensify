@@ -11,17 +11,6 @@ import { setTextFilter } from './actions/filters';
 
 const store = configureStore();
 
-store.subscribe(() => {
-    const state = store.getState();
-    const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
-    console.log(visibleExpenses);
-    console.log(state);
-});
-
-store.dispatch(addExpense({ description: 'We have rented a wardrobe', amount: 100, createdAt: 10 }));
-store.dispatch(addExpense({ description: 'Electricity bill', amount: 300, createdAt: 20 }));
-store.dispatch(addExpense({ description: 'Water bill', amount: 19300, createdAt: 12000 }));
-
 const jsx = (
  <Provider store={store}>
      <AppRouter/>
